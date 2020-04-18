@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+</head>
+<style>
+    .container {
+        width: 90vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 20px;
+    }
+
+    button {
+        width: 430px;
+        height: 200px;
+        font-size: 48px;
+        background: #5a09ced9;
+        border-radius: 5%;
+
+    }
+
+    button:hover {
+        background: #5a09ce96;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #second {
+        font-size: 56px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .sc {
+        width: 100%;
+    }
+
+    input {
+        height: 50px;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    #numero:hover {
+        cursor: pointer;
+    }
+
+    #code {
+        
+    }
+
+</style>
+<body>
+    <div class="container" id="first">
+        <button id="btn-start" onclick="comenzar()">Comenzar</button>
+    </div>
+    <div class="container hidden " id="second">
+        <div id="code" class="hidden">
+            <p style="font-size: 32px;">Todo lo que Resta es Obtener Los codigos deL acErtijo y pAsar al siguiente.<p>
+            <p style="font-size: 32px;">crees poDer o nO?</p>
+        </div>
+        <form action="javascript:aver()">
+            <label for="">Ingrese el codigo de <b id="numero" onclick="girar()">6</b> digitos</label>
+            <input type="text" id="codigo" onkeyup="maxlen()">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+
+    <script>
+        function comenzar() {
+            document.getElementById("first").classList.add("hidden")
+            document.getElementById("second").classList.remove("hidden")
+        }
+        function aver() {
+            var code = document.getElementById("codigo").value;
+            if(code === "TROLLEADO") {
+                alert("Lo conseguiste xd")
+            }
+        }
+
+        function maxlen() {
+            var code = document.getElementById("codigo").value;
+            var len = document.getElementById("numero").innerHTML;
+            if(code.length >= len) {
+                document.getElementById("codigo").value = code.substring(0,len);
+            }
+        }
+
+        function girar() {
+            var num = document.getElementById("numero").innerHTML;
+            if( num == "6") {
+                document.getElementById("numero").innerHTML = "9";
+                document.getElementById("code").classList.remove("hidden")
+            } else {
+                document.getElementById("numero").innerHTML = "6";
+                document.getElementById("code").classList.add("hidden")
+            }
+            
+        }
+
+    </script>
+</body>
+
+
+
+</html>
